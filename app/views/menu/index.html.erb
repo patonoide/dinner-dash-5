@@ -1,0 +1,21 @@
+<h1>PAGINA INICIAL DINNERDASH</h1>
+<p>Aqui ficarão os pratos disponíveis e bebidas. 
+
+Haverão links de login e cadastro.
+
+<!-- Diferentes comportamentos de links dependendo se o usuário está logado ou não. Se está logado, aparece
+apenas o botão de finalizar pedido, se nao está logado aparecem os botões de cadastro e de login -->
+
+<% if user_signed_in?%>
+<ul>
+    <li> finalizar e pagar</li>
+    <li><% link_to "Sair", destroy_user_session_path, method: :delete %></li>
+</ul>
+
+<% else%>
+<ul>
+    <li><%= link_to "fazer o meu cadastro", new_user_registration_path %></li>
+</ul>
+<%end%>
+
+</p>
