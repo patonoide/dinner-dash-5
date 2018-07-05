@@ -1,35 +1,25 @@
 <div class="">
 
-    <table class="table table-bordered top">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Product_ID</th>
-                        <th>Quantity</th>
-                        <th>Date_Time</th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr >
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td> update delete  </td>
-                    </tr>
-                </tbody>
-            </table>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
 
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody >
+             <% @categories.each do |category| %>
+            <tr >
+                <td> <%=category.id %> </td>
+                <td>  <%= category.name %> </td>
 
-
-
-
-
-
-
-
-
+                <td> update delete  </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 
 
 

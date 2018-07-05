@@ -2,8 +2,13 @@ class CategoryController < ApplicationController
     before_action :require_admin
 
 
-  def index
-      @categories = Category.all
+    def index
+        @categories = Category.all
 
-  end
+    end
+
+    def update
+
+    end
+
 end

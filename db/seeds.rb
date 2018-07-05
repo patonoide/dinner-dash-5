@@ -8,3 +8,7 @@
 puts "criando admin"
 User.create!(email: 'admin@admin.com', name: 'Admin', password: '123456', admin: true)
 puts "criando admin OK"
+
+puts "criando category"
+Category.create(name: "Salada")
+puts "criando category OK"
