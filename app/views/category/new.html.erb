@@ -1,0 +1,22 @@
+<div class="row">
+
+
+
+
+        <%= form_for @categories do |f| %>
+
+
+          <p class="col-sm-5">
+            <%= f.label :nome, class: "form-label" %><br>
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+          </p>
+
+
+          <p class="col-sm-5">
+            <%= f.submit "Nova Categoria", class: "btn btn-success col-sm-3"%>
+            <%= link_to 'Voltar', categories_path, class: "btn btn-gray col-sm-2" %>
+          </p>
+        <% end %>
+
+
+</div>

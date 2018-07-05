@@ -8,7 +8,11 @@ class CategoryController < ApplicationController
     end
 
     def update
+        @category = Category.find(params[:id])
+    end
 
+    def new
+        @category = Category.new
     end
 
 end
