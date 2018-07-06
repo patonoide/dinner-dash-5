@@ -15,7 +15,7 @@
                 <td> <%=category.id %> </td>
                 <td>  <%= category.name %> </td>
 
-                <td> update delete  </td>
+                <td><%= link_to 'Editar', edit_meal_category_path(meal_category)%> <%= link_to "Excluir", categories_path(meal_category.id), method: :delete%>  </td>
             </tr>
             <% end %>
         </tbody>
