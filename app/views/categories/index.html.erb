@@ -1,5 +1,7 @@
-<div class="">
+<div class="row">
+<div class="col-sm-8 col-offset-2">
 
+    <%= link_to 'Nova Categoria', new_category_path%>
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -13,14 +15,16 @@
              <% @categories.each do |category| %>
             <tr >
                 <td> <%=category.id %> </td>
-                <td>  <%= category.name %> </td>
+                <td>  <%=category.name %> </td>
 
-                <td><%= link_to 'Editar', edit_meal_category_path(meal_category)%> <%= link_to "Excluir", categories_path(meal_category.id), method: :delete%>  </td>
+                <td><%= link_to 'Editar', edit_category_path(category)%> <%= link_to "Excluir", category_path(category.id), method: :delete%>  </td>
             </tr>
             <% end %>
         </tbody>
     </table>
 
+
+</div>
 
 
 </div>
