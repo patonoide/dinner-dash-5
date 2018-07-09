@@ -18,7 +18,11 @@ class MealsController < ApplicationController
   
   def create
     @meal = Meal.new(meal_params)
+    image = params[:meal][:image]
         if @meal.save
+          if image
+            @user.image.attach(image)
+          end
             redirect_to meals_path
         else
             render :new
@@ -31,7 +35,11 @@ class MealsController < ApplicationController
 
   
   def update
+    image = params[:meal][:image]
     if @meal.update(meal_params)
+      if image
+        @meal.image.attach(image)
+      end
       redirect_to meals_path
     else
       render :edit
@@ -55,6 +63,6 @@ class MealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meal_params
-      params.require(:meal).permit(:name, :description, :price, :available)
+      params.require(:meal).permit(:name, :description, :price, :available, :image)
     end
 end

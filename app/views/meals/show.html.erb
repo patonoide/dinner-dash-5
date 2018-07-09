@@ -20,5 +20,14 @@
   <%= @meal.available %>
 </p>
 
-<%= link_to 'Edit', edit_meal_path(@meal) %> |
-<%= link_to 'Back', meals_path %>
+<% if @meal.image.attached? %>
+<!-- @meal.image.present? will always return true, use attached? to check presence -->
+  <p>
+    <strong>Imagem:</strong>
+    <br>
+    <%= image_tag @meal.image %>
+  </p>
+<% end %>
+
+<%= link_to 'Editar', edit_meal_path(@meal) %> |
+<%= link_to 'Voltar', meals_path %>
