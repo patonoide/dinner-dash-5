@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2018_07_04_223903) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "name"
-    t.boolean "admin"
+    t.string "name", null: false
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
