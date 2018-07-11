@@ -18,7 +18,9 @@ class CategoriesController < ApplicationController
     def update
         @category = Category.find(params[:id])
         if @category.update(category_params)
-            redirect_to categories_path
+            redirect_to categories_path, :notice => "Categoria editada."
+        else
+            redirect_to categories_path, :alert => "Categoria já existente ou em branco."
         end
     end
 
@@ -37,7 +39,9 @@ class CategoriesController < ApplicationController
     def create
         @category = Category.new(category_params)
         if @category.save
-            redirect_to categories_path
+            redirect_to categories_path, :notice => "Categoria criada."
+        else
+            redirect_to categories_path, :alert => "Categoria já existente ou em branco."
         end
     end
 

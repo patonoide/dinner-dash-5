@@ -24,9 +24,9 @@ class MealsController < ApplicationController
           if image
             @user.image.attach(image)
           end
-            redirect_to meals_path
+            redirect_to meals_path, :notice => "Refeição criada."
         else
-            render :new
+            redirect_to meals_path, :alert => "Refeição já existente, não possui nome ou não possui preço."
         end
   end
 
@@ -43,7 +43,7 @@ class MealsController < ApplicationController
       end
       redirect_to meals_path, :notice => "Refeição editada."
     else
-      render :edit
+      redirect_to meals_path, :alert => "Refeição já existente, não possui nome ou não possui preço."
     end
   end
 
@@ -51,18 +51,17 @@ class MealsController < ApplicationController
   def destroy
     @meal.destroy
     respond_to do |format|
-      format.html { redirect_to meals_url, notice: 'Meal was successfully destroyed.' }
+      format.html { redirect_to meals_url, notice: 'Refeição excluída.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_meal
       @meal = Meal.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def meal_params
       params.require(:meal).permit(:name, :description, :price, :available, :image)
     end
