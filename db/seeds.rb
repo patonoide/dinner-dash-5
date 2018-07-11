@@ -9,6 +9,12 @@ puts "criando admin"
 User.create!(email: 'admin@admin.com', name: 'Admin', password: '123456', admin: true)
 puts "criando admin OK"
 puts "criando refeições"
-Meal.create!(name: 'estrogonofe', description: 'contem Lactose', price: '50', available: 'sim')
+
+img = File.open(File.join(Rails.root, '/app/assets/images/strogo.jpeg'))
+
+Meal.create!(name: 'estrogonofe', description: 'contem Lactose', price: '50', available: 'sim',)
 Meal.create!(name: 'churrasco', description: 'completo', price: '30', available: 'nao')
 Meal.create!(name: 'feijoada', description: 'contem carne de porco', price: '10', available: 'sim')
+
+
+Meal.first.update(image: img)
