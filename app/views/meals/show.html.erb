@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meal.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @meal.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @meal.price %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @meal.available %>
+</p>
+
+<% if @meal.image.attached? %>
+<!-- @meal.image.present? will always return true, use attached? to check presence -->
+  <p>
+    <strong>Imagem:</strong>
+    <br>
+    <%= image_tag @meal.image %>
+  </p>
+<% end %>
+
+<%= link_to 'Editar', edit_meal_path(@meal) %> |
+<%= link_to 'Voltar', meals_path %>
