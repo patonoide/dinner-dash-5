@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+    before_action :authenticate_user!
+    before_action :authenticate_admin
 
     def category_params
         params.require(:category).permit(:name)

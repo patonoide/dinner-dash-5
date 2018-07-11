@@ -1,7 +1,8 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
-  #before_action :require_admin
-
+  before_action :authenticate_user!
+  before_action :authenticate_admin
+  
   def index
     @meals = Meal.all
   end
@@ -40,7 +41,7 @@ class MealsController < ApplicationController
       if image
         @meal.image.attach(image)
       end
-      redirect_to meals_path
+      redirect_to meals_path, :notice => "Refeição editada."
     else
       render :edit
     end
@@ -65,4 +66,6 @@ class MealsController < ApplicationController
     def meal_params
       params.require(:meal).permit(:name, :description, :price, :available, :image)
     end
+
+    
 end

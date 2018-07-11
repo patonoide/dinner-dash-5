@@ -43,10 +43,11 @@ ActiveRecord::Schema.define(version: 2018_07_09_015208) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-    t.text "price"
-    t.text "available"
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.boolean "available"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_015208) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "name", null: false
-    t.boolean "admin", default: false
+    t.integer "admin", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
