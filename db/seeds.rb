@@ -8,12 +8,10 @@
 puts "criando admin"
 User.create!(email: 'admin@admin.com', name: 'Admin', password: '123456', admin: true)
 puts "criando admin OK"
-<<<<<<< HEAD
 
 puts "criando category"
 Category.create(name: "Salada")
 puts "criando category OK"
-=======
 puts "criando refeições"
 
 img = File.open(File.join(Rails.root, '/app/assets/images/strogo.jpeg'))
@@ -24,4 +22,3 @@ Meal.create!(name: 'feijoada', description: 'contem carne de porco', price: '10'
 
 
 Meal.first.update(image: img)
->>>>>>> origin/meal
