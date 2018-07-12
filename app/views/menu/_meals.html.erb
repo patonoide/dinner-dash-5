@@ -2,23 +2,26 @@
     <% @meals.each do |meal|%>
         <div class="col-xs-4">
             <div class="card" style="width: 18rem;">
-                <% if meal.image.attached? %>
-                    <%= image_tag meal.image , size:'350' , class:'card-img-top' %>
+                <% if meal.available == true %>
+                    <% if meal.image.attached? %>
+                        <%= image_tag meal.image , size:'350' , class:'card-img-top' %>
+                    <% else %>
+                        <img class="card-img-top" src="asdasda" alt="Refeição">
+                    <% end %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= meal.name %></h5>
+                        <p class="card-text"><%= meal.description %></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><%= meal.price %></li>
+                    </ul>
+                    <div class="card-body">
+                        <%= link_to 'Quantidadade (list box)', root_path(meal), class:'card-link' 'btn btn-warning' %>
+                        <br>
+                        <%= link_to 'Adicionar ao meu prato', root_path(meal) , class:'card-link''btn btn-success'%>
+                    </div>
                 <% else %>
-                    <img class="card-img-top" src="asdasda" alt="Refeição">
                 <% end %>
-                <div class="card-body">
-                    <h5 class="card-title"><%= meal.name %></h5>
-                    <p class="card-text"><%= meal.description %></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= meal.price %></li>
-                </ul>
-                <div class="card-body">
-                    <%= link_to 'Quantidadade (list box)', root_path(meal), class:'card-link' 'btn btn-warning' %>
-                    <br>
-                    <%= link_to 'Adicionar ao meu prato', root_path(meal) , class:'card-link''btn btn-success'%>
-                </div>
             </div>
         </div>
     <% end %>
