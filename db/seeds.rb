@@ -11,15 +11,15 @@ User.create!(email: 'user@user.com', name: 'User', password: '123456', admin: 0)
 puts "criando admin OK"
 
 puts "criando category"
-Category.create(name: "Salada")
+cat1 = Category.create(name: "Salada")
 puts "criando category OK"
 puts "criando refeições"
 
 #img = File.open(File.join(Rails.root, '/app/assets/images/strogo.jpeg'))
 
-ref1 = Meal.create!(name: 'estrogonofe', description: 'contem Lactose', price: '50', available: true)
-Meal.create!(name: 'churrasco', description: 'completo', price: '30', available: false)
-Meal.create!(name: 'feijoada', description: 'contem carne de porco', price: '10', available: true)
+Meal.create!(name: 'estrogonofe', description: 'contem Lactose', price: '50', available: true)
+#Meal.create!(name: 'churrasco', description: 'completo', price: '30', available: false)
+#Meal.create!(name: 'feijoada', description: 'contem carne de porco', price: '10', available: true)
 
 #ref1.image.attach(img)
 #ref1.image.attach(
