@@ -17,7 +17,7 @@
 
 <body>
 
-    <% if !current_page?(new_user_registration_path) %>
+    <% if !current_page?(new_user_registration_path) and !current_page?(user_session_path) %>
         <%= render 'users/user-options' %>
     <% end  %>
 
