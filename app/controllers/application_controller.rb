@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate_admin
       unless current_user.admin_user?
-        redirect_to root_path, :alert => "Accesso negado. Permitido apenas a Administradores."
+        redirect_to root_path, :alert => "Acesso negado. Permitido apenas a Administradores."
       end
     end
 

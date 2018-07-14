@@ -8,11 +8,11 @@
         <%= devise_error_messages! %>
 
         <div class="form-group">
-            <%= f.label :email %><br/>
+            <%= f.label :email, "Email" %><br/>
             <%= f.email_field :email, autofocus: true, autocomplete: "Email",class: "form-control" %>
         </div>
         <div class="form-group">
-            <%= f.label :password %>
+            <%= f.label :password, "Senha" %>
             <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
         </div>
 
@@ -27,7 +27,7 @@
 
         <br>
         <div class="actions">
-            <%= f.submit "Login",class: "btn btn-success btn-block" %>
+            <%= f.submit "Fazer Login",class: "btn btn-success btn-block" %>
         </div>
         <% end %>
         <br>
