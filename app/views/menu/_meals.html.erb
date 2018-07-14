@@ -1,29 +1,35 @@
 <div class='row'>
+
     <% @meals.each do |meal|%>
-        <div class="col-xs-4">
-            <div class="card" style="width: 18rem;">
-                <% if meal.available == true %>
-                    <% if meal.image.attached? %>
-                        <%= image_tag meal.image , size:'350' , class:'card-img-top' %>
-                    <% else %>
-                        <img class="card-img-top" src="asdasda" alt="Refeição">
-                    <% end %>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= meal.name %></h5>
-                        <p class="card-text"><%= meal.description %></p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><%= meal.price %></li>
-                    </ul>
-                    <div class="card-body">
-                        <%= link_to 'Quantidadade (list box)', root_path(meal), class:'card-link' 'btn btn-warning' %>
-                        <br>
-                        <%= link_to 'Adicionar ao meu prato', root_path(meal) , class:'card-link''btn btn-success'%>
-                    </div>
-                <% else %>
+    <div class="col-xs-4">
+        <div class="card" style="width: 18rem;">
+            <% if meal.available == true %>
+            <% if meal.image.attached? %>
+            <%= image_tag meal.image , size:'350' , class:'card-img-top' %>
+            <% else %>
+            <img class="card-img-top" src="asdasda" alt="Refeição">
+            <% end %>
+            <div class="card-body">
+                <h5 class="card-title"><%= meal.name %></h5>
+                <p class="card-text"><%= meal.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= meal.price %></li>
+            </ul>
+
+            <div class="card-body">
+                <%= form_for @cart, :url => { :action => "add_cart" } do |f| %>
+                <%= f.select :quantity, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7", 7], ["8", 8]], {}, {class: "form-control"} %>
+                <br>
+                <%= f.submit "adicionar ao meu prato", class: "btn btn-sm btn-success col-md-12 adicionar-prato" %>
+                <% f.hidden_field @meal_id, value: meal.id %>
+
+
                 <% end %>
             </div>
+            <% else %>
+            <% end %>
         </div>
+    </div>
     <% end %>
 </div>
-

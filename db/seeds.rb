@@ -31,9 +31,17 @@ puts 'refeições OK'
 
 puts 'associação OK'
 
+
+puts 'Criando Situação'
+Situation.create!(description:"Pagamento pendente")
+Situation.create!(description:"Pagamento Confirmado")
+Situation.create!(description:"Compra ainda não confirmada")
+
+
+puts "Situação OK"
+
 #ref1.image.attach(img)
 #ref1.image.attach(
 #    io: File.open('/home/vribas/Área de Trabalho/dinner-dash/dinner-dash-5/app/assets/images'),
 #   content_type: 'application/jpeg'
 #  )
-
