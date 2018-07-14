@@ -34,6 +34,13 @@
         </div>
 
     </div>
+
+    <div class="field">
+      <%= form.label :category_id %>
+      <%= form.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+    
+    </div>
+
     <div class="col-1 offset-1">
 
         <div class="form-check">
@@ -56,3 +63,4 @@
         <% end %>
 
     </div>
+</div>

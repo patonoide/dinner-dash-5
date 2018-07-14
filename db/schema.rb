@@ -43,12 +43,15 @@ ActiveRecord::Schema.define(version: 2018_07_09_015208) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-    t.text "price"
-    t.text "available"
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.boolean "available"
+    t.string "image"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_meals_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,12 +65,15 @@ ActiveRecord::Schema.define(version: 2018_07_09_015208) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "name"
-    t.boolean "admin"
+
+    t.string "name", null: false
+    t.integer "admin", default: 0
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meals", "categories"
 end
