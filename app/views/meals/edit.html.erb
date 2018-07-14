@@ -1,6 +1,22 @@
-<h1>Editar Refeição</h1>
+<div class="row">
+    <div class="col-10 offset-1">
+        <h1>Editar Refeição</h1>
+    </div>
 
-<%= render 'form', meal: @meal %>
 
-<%= link_to 'Mostrar Mais', @meal %> |
-<%= link_to 'Voltar', meals_path %>
+    <%= render 'form', meal: @meal %>
+    <div class="">
+        <br>
+        <%= link_to 'Mostrar Mais', @meal,class: "btn btn-primary" %> 
+    </div>
+
+
+
+    <div class="col-1">
+        <br>
+
+        <%= link_to 'Voltar', meals_path,class: "btn btn-info" %>
+
+    </div>
+
+</div>
