@@ -1,5 +1,16 @@
-<h1>Nova Refeição</h1>
+<div class="row">
+    <div class="col-10 offset-1">
+        <h1>Nova Refeição</h1>
+    </div>
 
-<%= render 'form', meal: @meal %>
+    <%= render 'form', meal: @meal %>
 
-<%= link_to 'Voltar', meals_path %>
+
+    <div class="col-1">
+        <br>
+
+        <%= link_to 'Voltar', meals_path,class: "btn btn-info" %>
+
+    </div>
+
+</div>
