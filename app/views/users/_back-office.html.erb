@@ -1,31 +1,25 @@
-<div class="back-office-image">
-    <div class="image-text">
-      <p class="title">Backoffice</p>
-      <p class="subtitle">Gerencie pedidos, refeições e mais.</p>
-    </div>
-</div>
-<div class="nav-bar">
-      <% if current_page?(orders_path) %>
-        <%= link_to "Pedidos", orders_path, class: "navbar-link selected" %>
-      <% else %>
-        <%= link_to "Pedidos", orders_path, class: "navbar-link" %>
-      <% end %>
+<div class="navbar navbar-dark bg-dark">
+<%-#       <% if current_page?(orders_path) %>
+<%-#        <%= link_to "Pedidos", orders_path, class: "navbar-link selected" %>
+<%-#      <% else %>
+<%-#        <%= link_to "Pedidos", orders_path, class: "navbar-link" %>
+<%-#      <% end %>
 
-      <% if current_page?(users_path)%>
-        <%= link_to "Usuários", users_path, class: "navbar-link selected" %>
-      <% else %>
-        <%= link_to "Usuários", users_path, class: "navbar-link" %>
-      <% end %>
+  <% if current_page?(user_session_path)%>
+    <%= link_to "Usuários", user_session_path, class: "nav-item active" %>
+  <% else %>
+    <%= link_to "Usuários", user_session_path, class: "navbar-link" %>
+  <% end %>
 
-      <% if current_page?(meals_path) %>
-        <%= link_to "Refeições", meals_path, class: "navbar-link selected" %>
-      <% else %>
-        <%= link_to "Refeições", meals_path, class: "navbar-link" %>
-      <% end %>
+  <% if current_page?(meals_path) %>
+    <%= link_to "Refeições", meals_path, class: "nav-item active" %>
+  <% else %>
+    <%= link_to "Refeições", meals_path, class: "navbar-link" %>
+  <% end %>
 
-      <% if current_page?(meal_categories_index_path) %>
-        <%= link_to "Categorias de Refeição", meal_categories_index_path, class: "navbar-link selected" %>
-      <% else %>
-        <%= link_to "Categorias de Refeição", meal_categories_index_path, class: "navbar-link" %>
-      <% end %>
+  <% if current_page?(categories_path) %>
+    <%= link_to "Categorias de Refeição", categories_path, class: "nav-item active" %>
+  <% else %>
+    <%= link_to "Categorias de Refeição", categories_path, class: "navbar-link" %>
+  <% end %>
 </div>

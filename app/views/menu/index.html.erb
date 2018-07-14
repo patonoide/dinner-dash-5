@@ -1,13 +1,12 @@
 <% if user_signed_in?%>
-    <ul>
-        <h1><strong>Bem vindo, <%= current_user.name %></strong></h1>
-        <h3><strong>Monte seu prato. Escolha sua salada, molho, prato principal, guarnição e bebida. </strong></h3>
-        <%= render 'meals', meal: @meal %>
-    </ul>
+    <% if current_user.normal_user? %>
+        <ul>
+            <%= render 'meals', meal: @meal %>
+        </ul>
+    <% end %>
+
     <%else%>
     <ul>
-        <h1><strong>Monte seu prato</strong></h1>
-        <h3>Escolha sua salada, molho, prato principal, guarnição e bebida.</h3>
         <%= render 'meals', meal: @meal %>
     </ul>
 <%end%>

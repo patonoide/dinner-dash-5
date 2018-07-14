@@ -31,9 +31,10 @@ puts 'refeições OK'
 
 puts 'associação OK'
 
-#ref1.image.attach(img)
-#ref1.image.attach(
-#    io: File.open('/home/vribas/Área de Trabalho/dinner-dash/dinner-dash-5/app/assets/images'),
-#   content_type: 'application/jpeg'
-#  )
+meal1.image = Rails.root.join("app/assets/images/strogo.jpeg").open
+meal1.save!
+#meal1.image.attach(
+  #  io: File.open('/public'),
+   # filename: 'strogo.jpeg'
+  #)
 

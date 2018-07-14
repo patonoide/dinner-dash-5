@@ -1,27 +1,39 @@
-<div class="back-office-image">
-    <div class="image-text">
-        <p class="title">Backoffice</p>
-        <p class="subtitle">Gerencie pedidos, refeições e mais.</p>
+<% if current_user == nil %>
+    <div class="index-image">
+        <div class="image-text">
+            <div class="nav-bar">
+                <%= link_to "Criar conta", new_user_registration_path, :class => 'navbar-link'  %> |
+                <%= link_to "Logar", new_user_session_path, :class => 'navbar-link'  %>
+            </div>
+            <h1 class="title"><strong> Monte o seu prato</strong></h1>
+            <h3 class="subtitle">Escolha sua salada, molho, guarnição, prato principal e bebida.</h3>
+        </div>
     </div>
-</div>
-
-
-
-
-<div class="nav-bar">
-
-
-        <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.name %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-        dinnerdash
-        <%= link_to "Criar conta", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Logar", new_user_session_path, :class => 'navbar-link'  %>
-        
-        <% end %>
-
-
-
-</div>
+<% else %>
+    <% if current_user.normal_user? %>
+        <div class="index-image">
+            <div class="image-text">
+                <div class="nav-bar">
+                    Logged in as <strong><%= current_user.name %></strong>.
+                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                </div>
+                <h1 class="title"><strong> Bem-vindo, <%=current_user.name%></strong> </h1>
+                <h3 class="subtitle">Escolha sua salada, molho, guarnição, prato principal e bebida.</h3>
+            </div>
+        </div>
+    <% elsif current_user.admin_user? %>
+        <div class="back-office-image">
+            <div class="image-text">
+                <div class="nav-bar">
+                    Logged in as <strong><%= current_user.name %></strong>.
+                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                </div>
+                <h1 class="title"><strong> Backoffice </strong></h1>
+                <h3 class="subtitle">Gerencie pedidos, refeições e mais.</h3>
+                <div class="subtitle"> <%= render 'users/back-office' %> </div> 
+            </div>
+        </div>
+    <% end %>
+<% end %>
