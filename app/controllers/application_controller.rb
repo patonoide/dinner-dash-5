@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
         if user_signed_in?
 
         session[:current_order] ||= Order.create.id
+        
         @_current_order = Order.find(session[:current_order])
 
         @meal = Meal.all
