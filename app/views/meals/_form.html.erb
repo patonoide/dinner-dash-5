@@ -1,47 +1,64 @@
+
+
+
+
+
 <%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+<% if meal.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
 
-      <ul>
-      <% meal.errors.full_messages.each do |message| %>
+    <ul>
+        <% meal.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
-      </ul>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<div class="row">
+    <div class="col-3 offset-1">
+
+        <div class="form-group">
+            <%= form.label :name, class: "form-label" %>
+            <%= form.text_field :name, class: "form-control" %>
+        </div>
     </div>
-  <% end %>
+    <div class="col-3 ">
+        <div class="form-group">
+            <%= form.label :description, class: "form-label" %>
+            <%= form.text_field :description, class: "form-control" %>
+        </div>
+    </div>
+    <div class="col-3 ">
+        <div class="form-group">
+            <%= form.label :price, class: "form-label" %>
+            <%= form.text_field :price, class: "form-control" %>
+        </div>
+    </div>
+    <div class="col-2 ">
+        <div class="form-group check">
+            <%= form.label :available, class: "form-label" %>
+            <%= form.check_box :available, class: "check-box" %>
+        </div>
+    </div>
+    <div class="col-2 offset-1">
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <div class="form-group">
+            <%= form.label :category_id, class: "form-label"   %>
+            <%= form.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="form-group">
+            <%= form.label :image , class: "form-label" %>
+            <%= form.file_field :image, class: "form-control-file" %>
+        </div>
+    </div>
+    <div class="col-2 offset-1">
+        <div class="actions">
+            <%= form.submit 'Prosseguir',class: "btn btn-success"%>
+        </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :available %>
-    <%= form.check_box :available %>
-  </div>
-
-  <div class="field">
-      <%= form.label :category_id %>
-      <%= form.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
-  </div>
-
-  <div class="field">
-  <%= form.label :image %>
-  <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Prosseguir' %>
-  </div>
+</div>
 <% end %>
