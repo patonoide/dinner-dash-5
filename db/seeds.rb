@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts "criando admin"
 User.create!(email: 'admin@admin.com', name: 'Admin', password: '123456', admin: 1)
 User.create!(email: 'user@user.com', name: 'User', password: '123456', admin: 0)
@@ -19,7 +12,6 @@ cat3 = Category.create(name: "Pratos principais")
 puts "category OK"
 puts "criando refeições"
 
-#img = File.open(File.join(Rails.root, '/app/assets/images/strogo.jpeg'))
 
 meal1 = Meal.create!(name: 'Estrogonofe', description: 'contem Lactose', price: '50', available: true, category: cat3)
 meal2 = Meal.create!(name: 'Churrasco', description: 'Feito na brasa', price: '50', available: true, category: cat3)
@@ -30,11 +22,4 @@ meal6 = Meal.create!(name: 'Salada de Macarrão Parafuso', description: 'Possui 
 puts 'refeições OK'
 
 puts 'associação OK'
-
-meal1.image = Rails.root.join("app/assets/images/strogo.jpeg").open
-meal1.save!
-#meal1.image.attach(
-  #  io: File.open('/public'),
-   # filename: 'strogo.jpeg'
-  #)
 
