@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+      @order = Order.find(params[:id])
   end
 
   # POST /orders
@@ -69,6 +70,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:price, :user_id, :situation_id)
+      params.require(:order).permit(:situation_id)
     end
 end

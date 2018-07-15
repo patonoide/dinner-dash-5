@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :set_current_order
+
+
     def authenticate_admin
         unless current_user.admin_user?
             redirect_to root_path, :alert => "Accesso negado. Permitido apenas a Administradores."
@@ -8,6 +10,8 @@ class ApplicationController < ActionController::Base
     end
 
     def set_current_order
+        if user_signed_in?
+
         session[:current_order] ||= Order.create.id
         @_current_order = Order.find(session[:current_order])
 
@@ -17,6 +21,7 @@ class ApplicationController < ActionController::Base
         end
 
         Order.find(session[:current_order])
+    end
     end
 
     protected
