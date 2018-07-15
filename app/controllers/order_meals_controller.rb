@@ -1,6 +1,6 @@
 class OrderMealsController < ApplicationController
   before_action :set_order_meal, only: [:show, :edit, :update, :destroy]
-
+  before_action :se_current_order
   # GET /order_meals
   # GET /order_meals.json
   def index

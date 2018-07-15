@@ -1,11 +1,11 @@
 <div class='row'>
 
     <% @meals.each do |meal|%>
-    <div class="col-xs-4">
-        <div class="card" style="width: 18rem;">
+    <div class="col-3  ">
+        <div class="card" >
             <% if meal.available == true %>
             <% if meal.image.attached? %>
-            <%= image_tag meal.image , size:'350' , class:'card-img-top' %>
+            <%= image_tag meal.image , size:'300' , class:'card-img-top' %>
             <% else %>
             <img class="card-img-top" src="asdasda" alt="Refeição">
             <% end %>
@@ -32,6 +32,7 @@
             <% else %>
             <% end %>
         </div>
+    <br>
     </div>
     <% end %>
 </div>
