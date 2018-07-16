@@ -23,3 +23,16 @@ puts 'refeições OK'
 
 puts 'associação OK'
 
+
+
+
+puts 'Criando Situação'
+Situation.create!(description:"Pagamento pendente")
+Situation.create!(description:"Pagamento Confirmado")
+Situation.create!(description:"Compra ainda não confirmada")
+
+
+puts "Situação OK"
+
+
+

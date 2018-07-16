@@ -1,0 +1,29 @@
+<%= form_with(model: situation, local: true) do |form| %>
+<% if situation.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(situation.errors.count, "error") %>
+        prohibited this situation from being saved:</h2>
+
+        <ul>
+            <% situation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="row">
+        <div class="col-3 offset-1">
+            <div class="form-group">
+                <%= form.label :description, class: "form-label" %>
+                <%= form.text_field :description, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="col-2 offset-1">
+            <div class="check">
+                <%= form.submit 'Prosseguir',class: "btn btn-success"%>
+            </div>
+        </div>
+
+    </div>
+    <% end %>
