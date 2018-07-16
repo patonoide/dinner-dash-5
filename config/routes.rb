@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :categories
+  get 'users', :to => 'users#index'
 end
