@@ -2,12 +2,15 @@
     <div class="index-image">
         <div class="image-text">
             <div class="navbar navbar-extand-lg">
-                <div class="navbar-nav ml-auto"><%= link_to "cadastro", new_user_registration_path, :class => 'nav-link'  %></div>
-                <%= link_to "entrar", new_user_session_path, :class => 'nav-link'  %>
+                <h1 class="nav-link dinnerdash-nav padding-left">Dinnerdash</h1>
+                <div class="navbar-nav ml-auto"><%= link_to "cadastro", new_user_registration_path, :class => 'nav-link font-white'  %></div>
+                <%= link_to "entrar", new_user_session_path, :class => 'nav-link font-white'  %>
+                
             </div>
             <div class="text-bottom">
-                <h1 class="title"><strong> Monte o seu prato</strong></h1>
-                <h3 class="subtitle">Escolha sua salada, molho, guarnição, prato principal e bebida.</h3>
+                
+                <h1 class="title monte-prato padding-top padding-left">Monte o seu prato</h1>
+                <h3 class="subtitle escolha padding-left">Escolha sua salada, molho, guarnição, prato principal e bebida.</h3>
             </div>
         </div>
     </div>
@@ -16,24 +19,26 @@
         <div class="index-image">
             <div class="image-text">
                 <div class="navbar navbar-extand-lg">
-                    <div class="navbar-nav ml-auto"><%= link_to 'perfil', edit_user_registration_path, :class => 'nav-link' %></div>
-                    <%= link_to "sair", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+                    <h1 class="nav-link dinnerdash-nav padding-left">Dinnerdash</h1>
+                    <div class="navbar-nav ml-auto"><%= link_to 'perfil', edit_user_registration_path, :class => 'nav-link font-white' %></div>
+                    <%= link_to "sair", destroy_user_session_path, method: :delete, :class => 'nav-link font-white'  %>
                 </div>
-                <h1 class="title"><strong> Bem-vindo, <%=current_user.name%></strong> </h1>
-                <h3 class="subtitle">Escolha sua salada, molho, guarnição, prato principal e bebida.</h3>
+                <h1 class="title monte-prato padding-top padding-left"><strong> Bem-vindo, <%=current_user.name%></strong> </h1>
+                <h3 class="subtitle escolha padding-left">Escolha sua salada, molho, guarnição, prato principal e bebida.</h3>
             </div>
         </div>
     <% elsif current_user.admin_user? %>
         <div class="back-office-image">
             <div class="image-text">
                 <div class="navbar navbar-extand-lg">
-                    <div class="navbar-nav ml-auto"><%= link_to 'perfil', edit_user_registration_path, :class => 'nav-link' %></div>
-                    <%= link_to "sair", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+                    <h1 class="nav-link dinnerdash-nav padding-left">Dinnerdash</h1>
+                    <div class="navbar-nav ml-auto"><%= link_to 'perfil', edit_user_registration_path, :class => 'nav-link font-white' %></div>
+                    <%= link_to "sair", destroy_user_session_path, method: :delete, :class => 'nav-link font-white'  %>
                 </div>
-                <h1 class="title"><strong> Backoffice </strong></h1>
-                <h3 class="subtitle">Gerencie pedidos, refeições e mais.</h3>
-                <div class="subtitle"> <%= render 'users/back-office' %> </div> 
+                <h1 class="title font-white padding-top padding-left"><strong> Backoffice </strong></h1>
+                <h3 class="subtitle font-white padding-left">Gerencie pedidos, refeições e mais.</h3>
             </div>
         </div>
+        <div> <%= render 'users/back-office' %> </div>
     <% end %>
 <% end %>
