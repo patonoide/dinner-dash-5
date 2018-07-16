@@ -1,8 +1,22 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="offset-1">
 
-<h1>REFEIÇÕES</h1>
+        <h1>REFEIÇÕES</h1>
+    </div>
+
+</div>
 
 <%= render 'meals', meal: @meal %>
 
 <br>
-<%= link_to 'Nova Refeição', new_meal_path, class: "btn btn-success" %>
+
+
+<div class="row">
+    <div class="offset-1">
+
+        <%= link_to 'Nova Refeição', new_meal_path, class: "btn btn-success" %>
+        
+    </div>
+
+</div>
