@@ -17,13 +17,22 @@
                 <p class="card-text"><%= meal.description %></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= meal.price %></li>
+                <li class="list-group-item">Preço:R$ <%= meal.price %></li>
             </ul>
 
             <div class="card-body">
 
-
-                
+                <div class="form-group">
+                    <label for="">Número de pratos</label>
+                    <select class="form-control" id="">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button  class="btn btn-primary btn-block">Adicionar</button>
             </div>
             <%end  %>
         </div>
