@@ -1,5 +1,17 @@
-<h1>New Order</h1>
+<div class="row">
+    <div class="col-11 offset-1">
 
-<%= render 'form', order: @order %>
+        <h1>Nova Order</h1>
+    </div>
+    <div class="col-12">
 
-<%= link_to 'Back', orders_path %>
+
+        <%= render 'form', order: @order %>
+
+    </div>
+    <div class="col-2 offset-1">
+
+        <%= link_to 'Voltar', orders_path,class: "btn btn-info" %>
+    </div>
+
+</div>

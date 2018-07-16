@@ -27,7 +27,8 @@
     <div class="col-3 ">
         <div class="form-group">
             <%= form.label :meal_id, class: "form-label" %>
-            <%= form.text_field :meal_id, class: "form-control" %>
+            
+            <%= form.collection_select(:meal_id, Meal.all, :id,:name, prompt: true,class:"form-control")%>
         </div>
     </div>
     <div class="col-2 offset-1">

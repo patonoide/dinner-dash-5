@@ -1,9 +1,5 @@
 class OrdersController < ApplicationController
-    has_many :order_has_meals, dependent: :destroy
-	has_many :meals, :through => :order_has_meals
-	belongs_to :user
-  before_save :price_sum, only: [:add_meal]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+    
 
   # GET /orders
   # GET /orders.json

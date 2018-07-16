@@ -1,6 +1,23 @@
-<h1>Editing Order Meal</h1>
+<div class="row">
+    <div class="col-11 offset-1">
 
-<%= render 'form', order_meal: @order_meal %>
+        <h1>Editar Order Meal</h1>
+    </div>
+    <div class="col-12">
 
-<%= link_to 'Show', @order_meal %> |
-<%= link_to 'Back', order_meals_path %>
+        <%= render 'form', order_meal: @order_meal %>
+
+
+
+    </div>
+
+    <div class="col-2 offset-1 check">
+
+        <%= link_to 'Voltar', order_meals_path,class: "btn btn-info" %>
+    </div>
+    <div class="col-2 offset-1 check">
+
+        <%= link_to 'Mostar', @order_meal,class:"btn btn-secondary" %>
+    </div>
+
+</div>
