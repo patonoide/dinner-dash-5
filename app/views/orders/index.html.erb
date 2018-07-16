@@ -20,7 +20,7 @@
                 <tr>
                     <td><%= order.price %></td>
                     <td><%= order.user %></td>
-                    <td><%= order.situation %></td>
+                    <td><%= order.situation_id %></td>
                     <td><%= link_to 'Show', order ,class: "btn btn-secondary"%></td>
                     <td><%= link_to 'Edit', edit_order_path(order),class: "btn btn-warning"  %></td>
                     <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Nani?' }, class:"btn btn-warning" %></td>

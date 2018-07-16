@@ -1,29 +1,29 @@
 class Order < ApplicationRecord
-    has_many :order_has_meals, dependent: :destroy
-    has_many :meals, :through => :order_has_meals
+    has_many :order_meals, dependent: :destroy
+    has_many :meals, :through => :order_meals
     belongs_to :user
     before_save :price_sum, only: [:add_meal]
 
     def add_meal(meal_params, how_many_more) #Howmanymore é um inteiro passado na chamada do método
-        @current_order_item = self.order_has_meals.find_by(meal_id: meal_params[:id])
+        @current_order_item = self.order_meals.find_by(meal_id: meal_params[:id])
 
         if @current_order_item
             @current_order_item.quantity += how_many_more
             @current_order_item.save
         else
-            @new_order = order_has_meals.create(meal_id: meal_params[:id],
+            @new_order = order_meals.create(meal_id: meal_params[:id],
                 quantity: how_many_more, price: meal_params[:price],
                 order_id: self.id )
             end
         end
 
         def destroy_meal(meal_params)
-            @current_order_item = self.order_has_meals.find_by(meal_id: meal_params[:id])
+            @current_order_item = self.order_meals.find_by(meal_id: meal_params[:id])
             @current_order_item ? @current_order_item.destroy : 0 #MENSAGEM QUE DIZ QUE DEU ERRO
         end
 
         def remove_meal(meal_params, how_many_less)
-            @current_order_item = self.order_has_meals.find_by(meal_id: meal_params[:id])
+            @current_order_item = self.order_meals.find_by(meal_id: meal_params[:id])
 
             if @current_order_item
                 @current_order_item.quantity -= how_many_less
@@ -55,6 +55,6 @@ class Order < ApplicationRecord
         private
 
         def price_sum
-            self[:price] = self.order_has_meals.map{|meal| true ? meal.quantity*meal.price : 0}.sum
+            self[:price] = self.order_meals.map{|meal| true ? meal.quantity*meal.price : 0}.sum
         end
     end
