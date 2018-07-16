@@ -22,7 +22,7 @@
         </p>
 
         <p>
-            <%= f.label :admin, class: "form-label" %>
+            <%= f.label :admin, "Perfil", class: "form-label" %>
             <%= f.collection_select(:admin, User.all, :admin, :admin, prompt: true,class:"form-control") %>
         </p>
 
