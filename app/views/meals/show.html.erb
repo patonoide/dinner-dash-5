@@ -1,23 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @meal.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @meal.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Preço:</strong>
   <%= @meal.price %>
 </p>
 
 <p>
-  <strong>Available:</strong>
+  <strong>Disponível:</strong>
   <%= @meal.available %>
+</p>
+
+<p>
+    <strong>Categoria:</strong>
+    <%= @meal.category.name %>
 </p>
 
 <% if @meal.image.attached? %>

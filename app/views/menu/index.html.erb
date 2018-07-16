@@ -1,28 +1,24 @@
-<h1>PAGINA INICIAL DINNERDASH</h1>
-<p>Aqui ficarão os pratos disponíveis e bebidas.
+<% if user_signed_in?%>
+    <% if current_user.normal_user? %>
+        <ul>
+            <%= render 'meals', meal: @meal %>
+        </ul>
+    <% end %>
 
-    Haverão links de login e cadastro.
-
-    <!-- Diferentes comportamentos de links dependendo se o usuário está logado ou não. Se está logado, aparece
-    apenas o botão de finalizar pedido, se nao está logado aparecem os botões de cadastro e de login -->
-
-    <% if user_signed_in?%>
+    <%else%>
     <ul>
-        <li> finalizar e pagar</li>
-        <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "Refeições", meals_path%>
+        <%= render 'meals', meal: @meal %>
     </ul>
 
+    <div class="row">
+        <div class="col-3 offset-1">
+            <h3>Total R$:</h3>
+        </div>
+        <div class="col-2">
+            <button  class="btn btn-success">Finalizar</button>
+        </div>
 
-    <% else%>
-
-    <ul>
-        <li><%= link_to "fazer o meu cadastro", new_user_registration_path %></li>
-        <li><%= link_to "fazer login", new_user_session_path %> </li>
-        <li><%= link_to "Refeições", meals_path%>
-    </ul>
-
-
-    <%end%>
-
-</p>
+    </div>
+    <br>
+    <br>
+<%end%>

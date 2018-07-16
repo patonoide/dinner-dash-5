@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :order_meals
+  resources :orders
+  resources :situations
   resources :meals
   root 'menu#index'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   resources :categories
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'users', :to => 'users#index'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_09_015208) do
+ActiveRecord::Schema.define(version: 2018_07_12_192808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,39 @@ ActiveRecord::Schema.define(version: 2018_07_09_015208) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-    t.text "price"
-    t.text "available"
+    t.string "name"
+    t.string "description"
+    t.float "price"
+    t.boolean "available"
+    t.string "image"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_meals_on_category_id"
+  end
+
+  create_table "order_meals", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "order_id"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_order_meals_on_meal_id"
+    t.index ["order_id"], name: "index_order_meals_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.float "price"
+    t.bigint "user_id"
+    t.bigint "situation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["situation_id"], name: "index_orders_on_situation_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "situations", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,11 +92,16 @@ ActiveRecord::Schema.define(version: 2018_07_09_015208) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "name", null: false
-    t.boolean "admin", default: false
+    t.integer "admin", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meals", "categories"
+  add_foreign_key "order_meals", "meals"
+  add_foreign_key "order_meals", "orders"
+  add_foreign_key "orders", "situations"
+  add_foreign_key "orders", "users"
 end

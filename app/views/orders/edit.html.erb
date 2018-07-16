@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-11 offset-1">
+
+        <h1>Editar Order</h1>
+    </div>
+    <div class="col-12">
+
+
+        <%= render 'form', order: @order %>
+
+    </div>
+    <div class="col-2 offset-1">
+
+        <%= link_to 'Voltar', orders_path,class: "btn btn-info" %>
+    </div>
+    <div class="col-2 offset-1 check">
+
+        <%= link_to 'Mostar', @order,class:"btn btn-secondary" %>
+    </div>
+
+</div>
