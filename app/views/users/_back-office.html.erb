@@ -23,8 +23,8 @@
     <%= link_to "Categorias de Refeição", categories_path, class: "nav-link mr-auto font-white" %>
   <% end %>
   <% if current_page?(categories_path) %>
-    <%= link_to "Refeições", order_meals_path, class: "nav-link active mr-auto font-white" %>
+    <%= link_to "Order Meal", order_meals_path, class: "nav-link active mr-auto font-white" %>
   <% else %>
-    <%= link_to "Refeições", order_meals_path, class: "nav-link mr-auto font-white" %>
+    <%= link_to "Order Meal", order_meals_path, class: "nav-link mr-auto font-white" %>
   <% end %>
 </div>
