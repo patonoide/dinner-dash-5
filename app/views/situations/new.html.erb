@@ -1,5 +1,15 @@
-<h1>New Situation</h1>
+<div class="row">
+    <div class="col-11 offset-1">
 
+        <h1>Nova Situação</h1>
+    </div>
+    <div class="col-12">
 <%= render 'form', situation: @situation %>
 
-<%= link_to 'Back', situations_path %>
+    </div>
+    <div class="col-2 offset-1">
+
+        <%= link_to 'Voltar', situations_path,class: "btn btn-info" %>
+    </div>
+
+</div>

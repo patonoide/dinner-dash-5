@@ -1,6 +1,20 @@
-<h1>Editing Situation</h1>
+<div class="row">
+    <div class="col-11 offset-1">
 
-<%= render 'form', situation: @situation %>
+        <h1>Editar Situation</h1>
+    </div>
+    <div class="col-12">
 
-<%= link_to 'Show', @situation %> |
-<%= link_to 'Back', situations_path %>
+        <%= render 'form', situation: @situation %>
+
+    </div>
+    <div class="col-1 offset-1">
+
+        <%= link_to 'Voltar', situations_path,class: "btn btn-info" %>
+    </div>
+    <div class="col-1  ">
+
+        <%= link_to 'Mostar', @situation,class:"btn btn-secondary" %>
+    </div>
+
+</div>
