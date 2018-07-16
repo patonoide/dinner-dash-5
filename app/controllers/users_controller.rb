@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     before_action :authenticate_user!
 
     before_action :authenticate_admin
+    def user_params
+        params.require(:user).permit(:name,:admin,:email)
+    end
 
     def index
         @users = User.all
