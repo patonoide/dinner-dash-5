@@ -12,7 +12,7 @@
                 <p class="card-text"><%= meal.description %></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= meal.price %></li>
+                <li class="list-group-item">R$ <%= meal.price %> por porção</li>
             </ul>
             <div class="card-body">
                 <%= link_to 'Editar', edit_meal_path(meal), class:'card-link btn btn-warning' %>
