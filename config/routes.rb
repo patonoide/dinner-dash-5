@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :order_meals
+  resources :orders
+  resources :situations
+  resources :meals
+  root 'menu#index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  resources :categories
+  resources :users
 end

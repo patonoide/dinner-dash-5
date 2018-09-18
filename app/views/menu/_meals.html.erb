@@ -1,0 +1,43 @@
+
+<br>
+
+<div class='row'>
+
+    <% @meals.each do |meal|%>
+    <div class="col-3  ">
+        <div class="card" >
+            <% if meal.available == true %>
+            <% if meal.image.attached? %>
+            <%= image_tag meal.image , size:'300' , class:'card-img-top' %>
+            <% else %>
+            <img class="card-img-top" src="asdasda" alt="Refeição">
+            <% end %>
+            <div class="card-body">
+                <h5 class="card-title"><%= meal.name %></h5>
+                <p class="card-text"><%= meal.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item price">R$ <%= meal.price %> por porção</li>
+            </ul>
+
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="">Número de pratos</label>
+                    <select class="form-control" id="">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button  class="btn btn-primary btn-block">Adicionar</button>
+            </div>
+            <%end  %>
+        </div>
+        <br>
+    </div>
+    <% end %>
+
+</div>

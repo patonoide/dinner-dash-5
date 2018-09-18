@@ -1,0 +1,24 @@
+<% if user_signed_in?%>
+    <% if current_user.normal_user? %>
+        <ul>
+            <%= render 'meals', meal: @meal %>
+        </ul>
+    <% end %>
+
+    <%else%>
+    <ul>
+        <%= render 'meals', meal: @meal %>
+    </ul>
+
+    <div class="row">
+        <div class="col-3 offset-1">
+            <h3>Total R$:</h3>
+        </div>
+        <div class="col-2">
+            <button  class="btn btn-success">Finalizar</button>
+        </div>
+
+    </div>
+    <br>
+    <br>
+<%end%>

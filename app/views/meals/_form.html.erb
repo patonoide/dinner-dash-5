@@ -1,0 +1,62 @@
+
+<%= form_with(model: meal, local: true) do |form| %>
+<% if meal.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(meal.errors.count, "error") %>
+        prohibited this meal from being saved:</h2>
+
+        <ul>
+            <% meal.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div class="row">
+        <div class="col-3 offset-1">
+
+            <div class="form-group">
+                <%= form.label :name, "Nome", class: "form-label" %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+        </div>
+        <div class="col-3 ">
+            <div class="form-group">
+                <%= form.label :description, "Descrição", class: "form-label" %>
+                <%= form.text_field :description, class: "form-control" %>
+            </div>
+        </div>
+        <br>
+        <div class="col-3 ">
+            <div class="form-group">
+                <%= form.label :price, "Preço", class: "form-label" %>
+                <%= form.number_field :price, class: "form-control" %>
+            </div>
+        </div>
+        <div class="col-2 ">
+            <div class="form-group check">
+                <%= form.label :available, "Disponível no cardápio?", class: "form-label" %>
+                <%= form.check_box :available, class: "check-box" %>
+            </div>
+        </div>
+
+        <div class="col-2 offset-1">
+            <div class="form-group">
+                <%= form.label :category_id, "Categoria", class: "form-label" %>
+                <%= form.collection_select(:category_id, Category.all, :id, :name, prompt: true,class:"form-control") %>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <%= form.label :image ,"Foto", class: "form-label" %>
+                <%= form.file_field :image, class: "form-control-file" %>
+            </div>
+        </div>
+        <div class="col-2 offset-1">
+            <div class="check">
+                <%= form.submit 'Prosseguir',class: "btn btn-success"%>
+            </div>
+        </div>
+
+    </div>
+    <% end %>

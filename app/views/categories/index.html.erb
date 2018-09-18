@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+
+<div class="row">
+<div class="col-sm-8 offset-2">
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody >
+            <% @categories.each do |category| %>
+            <tr >
+                <td> <%=category.id %> </td>
+                <td>  <%=category.name %> </td>
+
+                <td><%= link_to 'Editar', edit_category_path(category), class:"btn btn-warning"%> <%= link_to "Excluir", category_path(category.id), method: :delete, class:"btn btn-danger"%>  </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to 'Nova Categoria', new_category_path,class: "btn btn-success"%>
+
+</div>
+
+
+</div>
+
+<br>
+<br>
+<br>

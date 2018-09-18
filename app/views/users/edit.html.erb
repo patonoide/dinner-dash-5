@@ -1,0 +1,45 @@
+<br>
+<br>
+<div class="row">
+
+    <div class="col-10 offset-2">
+        <h3>Editar Usuário</h3>
+    </div>
+
+    <div class="col-5 offset-2">
+
+        <%= form_for @user do |f| %>
+
+
+        <p >
+            <%= f.label :name, "Nome", class: "form-label" %><br>
+            <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        </p>
+
+        <p >
+            <%= f.label :email, "Email", class: "form-label" %><br>
+            <%= f.text_field :email, autofocus: true, class: "form-control" %>
+        </p>
+
+        <p>
+            <%= f.label :admin, "Perfil", class: "form-label" %>
+            <%= f.collection_select(:admin, User.all, :admin, :admin, prompt: true,class:"form-control") %>
+        </p>
+
+        <p>
+
+            <%= @user.remember_created_at %>
+        </p>
+        <br>
+        <br>
+
+        <p >
+            <%= f.submit "Atualizar Usuário", class: "btn btn-success"%>
+            <%= link_to 'Voltar', users_path, class: "btn btn-secondary" %>
+        </p>
+
+
+        <% end %>
+    </div>
+
+</div>
